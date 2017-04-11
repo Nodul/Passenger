@@ -12,7 +12,7 @@ namespace Passenger.Api
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IHostingEnvironment env) // Dependency injection example [the framework is responsible for this]
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
