@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Passenger.Core.Helpers;
 
 namespace Passenger.Core.Domain
 {
@@ -14,6 +15,24 @@ namespace Passenger.Core.Domain
 
         public double Latitude { get; protected set; }
 
+        protected Node()
+        {
 
+        }
+
+        public Node(string address, double latitude, double longitude )
+        {
+            Address = Validation.ValidateAddress(address);
+
+            if (Validation.ValidateLatitude(latitude))
+            {
+                Latitude = latitude;
+            }
+
+            if (Validation.ValidateLongitude(longitude))
+            {
+                Longitude = longitude;
+            }         
+        }
     }
 }

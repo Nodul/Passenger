@@ -21,9 +21,7 @@
 
   <ItemGroup>
     <Folder Include="Core\Repositories\" />
-    <Folder Include="Infrastructure\DTO\" />
     <Folder Include="Infrastructure\Services\" />
-    <Folder Include="Infrastructure\Repositories\" />
   </ItemGroup>
 
 </Project>

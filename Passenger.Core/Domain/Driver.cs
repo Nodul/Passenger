@@ -17,5 +17,27 @@ namespace Passenger.Core.Domain
         public IEnumerable<DailyRoute> DailyRoutes { get; protected set; }
 
 
+        protected Driver()
+        {
+
+        }
+
+        public Driver(Guid userID, Vehicle vehicle, IEnumerable<Route> routes, IEnumerable<DailyRoute> dailyRoutes)
+        {
+            Id = Guid.NewGuid();
+
+            if (userID == Guid.Empty) throw new ArgumentException("Driver cannot accept empty userID");
+            else UserId = userID;
+
+            if (vehicle == null) throw new ArgumentNullException("Driver cannot accept null Vehicle");
+            else Vehicle = vehicle;
+
+            if (routes == null) throw new ArgumentNullException("Driver cannot accept null routes IEnumerable");
+            else Routes = routes;
+
+            if (dailyRoutes == null) throw new ArgumentNullException("Driver cannot accept null dailyRoutes IEnumerable");
+            else DailyRoutes = dailyRoutes;
+
+        }
     }
 }

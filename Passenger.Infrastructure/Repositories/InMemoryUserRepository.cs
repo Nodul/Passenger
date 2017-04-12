@@ -46,5 +46,15 @@ namespace Passenger.Infrastructure.Repositories
         {
             
         }
+
+        //protected InMemoryUserRepository()
+        //{
+
+        //}
+
+        public InMemoryUserRepository()
+        {
+
+        }
     }
 }
