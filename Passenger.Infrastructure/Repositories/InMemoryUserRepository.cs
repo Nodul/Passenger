@@ -44,7 +44,7 @@ namespace Passenger.Infrastructure.Repositories
 
         public void Update(User user)
         {
-            
+            // hmmm
         }
 
         //protected InMemoryUserRepository()
