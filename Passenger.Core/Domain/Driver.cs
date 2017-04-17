@@ -6,8 +6,6 @@ namespace Passenger.Core.Domain
 {
     public class Driver // aggregate root
     {
-        public Guid Id { get; protected set; }
-
         public Guid UserId { get; protected set; }
 
         public Vehicle Vehicle { get; protected set; }
@@ -24,13 +22,11 @@ namespace Passenger.Core.Domain
 
         public Driver(Guid userID, Vehicle vehicle, IEnumerable<Route> routes, IEnumerable<DailyRoute> dailyRoutes)
         {
-            Id = Guid.NewGuid();
-
             if (userID == Guid.Empty) throw new ArgumentException("Driver cannot accept empty userID");
             else UserId = userID;
 
             if (vehicle == null) throw new ArgumentNullException("Driver cannot accept null Vehicle");
-            else Vehicle = vehicle;
+            else Vehicle = vehicle; //Vehicle.Create();
 
             if (routes == null) throw new ArgumentNullException("Driver cannot accept null routes IEnumerable");
             else Routes = routes;
