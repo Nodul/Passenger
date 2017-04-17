@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Passenger.Infrastructure.Services;
 using Passenger.Infrastructure.DTO;
+using Passenger.Infrastructure.Commands.Users;
 
 namespace Passenger.Api.Controllers
 {
@@ -22,7 +23,11 @@ namespace Passenger.Api.Controllers
         public UserDTO Get(string email)
               => _userService.Get(email);
 
-
+        [HttpPost("")]
+        public void Post([FromBody]CreateUser request)
+        {
+            _userService.Register(request.Email,request.Username,request.Password);
+        }
 
     }
 }

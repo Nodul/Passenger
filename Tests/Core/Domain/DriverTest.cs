@@ -13,7 +13,7 @@ namespace Tests.Core.Domain
         public void ConstructDriver_Valid_True()
         {
             var user = new User("test@mail.com","test","pass1","salt1");
-            var vehicle = new Vehicle("Opel","Corsa",3);
+            var vehicle = Vehicle.Create("Opel","Corsa",3);
             var routes = new[]
             {
                 new Route(new Node("Wrocław",15.15,17.17),new Node("Legnica",15.15,18.18)),
@@ -36,7 +36,7 @@ namespace Tests.Core.Domain
         public void ConstructDriver_EmptyUserID_ArgumentException()
         {
             Guid user = Guid.Empty;
-            var vehicle = new Vehicle("Opel", "Corsa", 3);
+            var vehicle = Vehicle.Create("Opel", "Corsa", 3);
             var routes = new[]
             {
                 new Route(new Node("Wrocław",15.15,17.17),new Node("Legnica",15.15,18.18)),
@@ -74,7 +74,7 @@ namespace Tests.Core.Domain
         public void ConstructDriver_NullRoutes_ArgumentNullException()
         {
             var user = new User("test@mail.com", "test", "pass1", "salt1");
-            var vehicle = new Vehicle("Opel", "Corsa", 3);
+            var vehicle =Vehicle.Create("Opel", "Corsa", 3);
             IEnumerable<Route> routes = null;
             var dailyRoutes = new[]
             {
@@ -89,7 +89,7 @@ namespace Tests.Core.Domain
         public void ConstructDriver_NullDailyRoutes_ArgumentNullException()
         {
             var user = new User("test@mail.com", "test", "pass1", "salt1");
-            var vehicle = new Vehicle("Opel", "Corsa", 3);
+            var vehicle = Vehicle.Create("Opel", "Corsa", 3);
             var routes = new[]
 {
                 new Route(new Node("Wrocław",15.15,17.17),new Node("Legnica",15.15,18.18)),

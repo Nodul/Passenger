@@ -16,7 +16,7 @@ namespace Tests.Core.Domain
             var name = "Astra";
             int seats = 3;
 
-            var vehicle = new Vehicle(brand,name,seats);
+            var vehicle = Vehicle.Create(brand,name,seats);
 
             Assert.AreEqual(vehicle.Brand, "Opel");
             Assert.AreEqual(vehicle.Name, "Astra");
@@ -32,7 +32,7 @@ namespace Tests.Core.Domain
             var name = "Astra";
             int seats = -3;
 
-            var vehicle = new Vehicle(brand, name, seats);
+            var vehicle = Vehicle.Create(brand, name, seats);
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
@@ -42,7 +42,7 @@ namespace Tests.Core.Domain
             string name = null;
             int seats = 3;
 
-            var vehicle = new Vehicle(brand, name, seats);
+            var vehicle = Vehicle.Create(brand, name, seats);
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
@@ -52,7 +52,7 @@ namespace Tests.Core.Domain
             var name = "Astra";
             int seats = 3;
 
-            var vehicle = new Vehicle(brand, name, seats);
+            var vehicle = Vehicle.Create(brand, name, seats);
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
@@ -62,7 +62,7 @@ namespace Tests.Core.Domain
             var name = "";
             int seats = -3;
 
-            var vehicle = new Vehicle(brand, name, seats);
+            var vehicle = Vehicle.Create(brand, name, seats);
         }
     }
 }

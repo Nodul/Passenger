@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Passenger.Infrastructure.Services;
 using Passenger.Infrastructure.Repositories;
 using Passenger.Core.Repositories;
+using Passenger.Infrastructure.Mappers;
 
 namespace Passenger.Api
 {
@@ -35,6 +36,7 @@ namespace Passenger.Api
             services.AddScoped<IUserRepository, InMemoryUserRepository>();
             services.AddScoped<IDriverService, DriverService>();
             services.AddScoped<IDriverRepository, InMemoryDriverRepository>();
+            services.AddSingleton(AutoMapperConfig.Initialize());
             services.AddMvc();
         }
 
