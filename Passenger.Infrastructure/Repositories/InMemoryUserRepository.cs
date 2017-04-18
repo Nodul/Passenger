@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Passenger.Core.Domain;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Passenger.Infrastructure.Repositories
 {
@@ -16,35 +17,38 @@ namespace Passenger.Infrastructure.Repositories
             new User("user3@email.com","user3","secret3","salten")
         };
 
-        public void Add(User user)
+        public async Task AddAsync(User user)
         {
             _users.Add(user);
+            await Task.CompletedTask;
         }
 
-        public User Get(Guid id)
+        public async Task<User> GetAsync(Guid id)
         {
-            return _users.SingleOrDefault(x => x.Id == id);
+            return await Task.FromResult(_users.SingleOrDefault(x => x.Id == id));
         }
 
-        public User Get(string email)
+        public async Task<User> GetAsync(string email)
         {
-            return _users.SingleOrDefault(x => x.Email == email.ToLowerInvariant());
+            return await Task.FromResult(_users.SingleOrDefault(x => x.Email == email.ToLowerInvariant()));
         }
 
-        public IEnumerable<User> GetAll()
+        public async Task<IEnumerable<User>> GetAllAsync()
         {
-            return _users;
+            return await Task.FromResult(_users);
         }
 
-        public void Remove(Guid id)
+        public async Task RemoveAsync(Guid id)
         {
-            var user = Get(id);
+            var user = await GetAsync(id);
             _users.Remove(user);
+            await Task.CompletedTask;
         }
 
-        public void Update(User user)
+        public async Task UpdateAsync(User user)
         {
             // hmmm
+            await Task.CompletedTask;
         }
 
         //protected InMemoryUserRepository()

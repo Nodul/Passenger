@@ -23,13 +23,13 @@ namespace Tests.Infrastructure.Repositories
         {
             IUserRepository userRepo = new InMemoryUserRepository();
 
-            var user1 = userRepo.Get("user1@gmail.com");
+            var user1 = userRepo.GetAsync("user1@gmail.com");
 
             Assert.IsNotNull(user1);
-            Assert.AreEqual(user1.Email, "user1@gmail.com");
-            Assert.AreEqual(user1.Password, "secret1");
-            Assert.AreEqual(user1.Salt, "salt");
-            Assert.AreEqual(user1.Username, "user1");
+            Assert.AreEqual(user1.Result.Email, "user1@gmail.com");
+            Assert.AreEqual(user1.Result.Password, "secret1");
+            Assert.AreEqual(user1.Result.Salt, "salt");
+            Assert.AreEqual(user1.Result.Username, "user1");
         }
 
         [TestMethod]
@@ -37,13 +37,13 @@ namespace Tests.Infrastructure.Repositories
         {
             IUserRepository userRepo = new InMemoryUserRepository();
 
-            var user1 = userRepo.Get("user1@gmail.com");
+            var user1 = userRepo.GetAsync("user1@gmail.com");
 
             Assert.IsNotNull(user1);
-            Assert.AreEqual(user1.Email, "user1@gmail.com");
-            Assert.AreEqual(user1.Password, "secret1");
-            Assert.AreEqual(user1.Salt, "salt");
-            Assert.AreEqual(user1.Username, "user1");
+            Assert.AreEqual(user1.Result.Email, "user1@gmail.com");
+            Assert.AreEqual(user1.Result.Password, "secret1");
+            Assert.AreEqual(user1.Result.Salt, "salt");
+            Assert.AreEqual(user1.Result.Username, "user1");
         }
     }
 }
