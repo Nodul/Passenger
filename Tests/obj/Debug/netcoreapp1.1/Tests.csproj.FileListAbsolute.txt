@@ -6,11 +6,11 @@ G:\Programming\CSharp\MyProjects\Passenger\Tests\bin\Debug\netcoreapp1.1\Tests.r
 G:\Programming\CSharp\MyProjects\Passenger\Tests\bin\Debug\netcoreapp1.1\Tests.runtimeconfig.dev.json
 G:\Programming\CSharp\MyProjects\Passenger\Tests\bin\Debug\netcoreapp1.1\Tests.dll
 G:\Programming\CSharp\MyProjects\Passenger\Tests\bin\Debug\netcoreapp1.1\Tests.pdb
-G:\Programming\CSharp\MyProjects\Passenger\Tests\obj\Debug\netcoreapp1.1\Tests.csprojResolveAssemblyReference.cache
-G:\Programming\CSharp\MyProjects\Passenger\Tests\obj\Debug\netcoreapp1.1\Tests.AssemblyInfo.cs
-G:\Programming\CSharp\MyProjects\Passenger\Tests\obj\Debug\netcoreapp1.1\Tests.dll
-G:\Programming\CSharp\MyProjects\Passenger\Tests\obj\Debug\netcoreapp1.1\Tests.pdb
 G:\Programming\CSharp\MyProjects\Passenger\Tests\bin\Debug\netcoreapp1.1\Passenger.Core.dll
 G:\Programming\CSharp\MyProjects\Passenger\Tests\bin\Debug\netcoreapp1.1\Passenger.Infrastructure.dll
 G:\Programming\CSharp\MyProjects\Passenger\Tests\bin\Debug\netcoreapp1.1\Passenger.Core.pdb
 G:\Programming\CSharp\MyProjects\Passenger\Tests\bin\Debug\netcoreapp1.1\Passenger.Infrastructure.pdb
+G:\Programming\CSharp\MyProjects\Passenger\Tests\obj\Debug\netcoreapp1.1\Tests.csprojResolveAssemblyReference.cache
+G:\Programming\CSharp\MyProjects\Passenger\Tests\obj\Debug\netcoreapp1.1\Tests.AssemblyInfo.cs
+G:\Programming\CSharp\MyProjects\Passenger\Tests\obj\Debug\netcoreapp1.1\Tests.dll
+G:\Programming\CSharp\MyProjects\Passenger\Tests\obj\Debug\netcoreapp1.1\Tests.pdb

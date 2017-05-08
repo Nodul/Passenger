@@ -14,6 +14,7 @@ using Passenger.Infrastructure.Mappers;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Passenger.Infrastructure.IoC.Modules;
+using Passenger.Infrastructure.IoC;
 
 namespace Passenger.Api
 {
@@ -38,23 +39,13 @@ namespace Passenger.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
-            services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IUserRepository, InMemoryUserRepository>();
-            services.AddScoped<IDriverService, DriverService>();
-            services.AddScoped<IDriverRepository, InMemoryDriverRepository>();
-            services.AddSingleton(AutoMapperConfig.Initialize());
             services.AddMvc();
-
             var builder = new ContainerBuilder();
             builder.Populate(services);
-            builder.RegisterModule<CommandModule>();
-            builder.RegisterModule(new SettingsModule(Configuration));
+            builder.RegisterModule(new ContainerModule(Configuration));
             ApplicationContainer = builder.Build();
 
             return new AutofacServiceProvider(ApplicationContainer);
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

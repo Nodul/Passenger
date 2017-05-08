@@ -20,6 +20,11 @@ namespace Passenger.Infrastructure.Services
             _mapper = mapper;
         }
 
+        public Task CreateDriver()
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<DriverDTO> GetAsync(Guid userId)
         {
             var driver = await _driverRepo.GetAsync(userId);
