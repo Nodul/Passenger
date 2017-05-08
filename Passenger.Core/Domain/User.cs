@@ -21,13 +21,16 @@ namespace Passenger.Core.Domain
         public string Fullname { get; protected set; }
 
         public DateTime CreatedAt { get; protected set; }
+        public DateTime UpdatedAt { get; protected set; }
+
+        public string Role { get; protected set; }
 
         protected User()
         {
 
         }
 
-        public User(string email, string username, string password, string salt)
+        public User(string email, string username, string password, string salt, string role)
         {
             Id = Guid.NewGuid();
             Email = Validation.ValidateEmail(email);
@@ -35,8 +38,16 @@ namespace Passenger.Core.Domain
             Password = Validation.ValidateString(password);
             Salt = Validation.ValidateString(salt);
             CreatedAt = DateTime.UtcNow;
+            UpdatedAt = DateTime.UtcNow;
+            Role = role;
         }
 
+        public void SetRole(string role)
+        {
+            if (this.Role == role) return;
 
+            this.Role = role;
+            UpdatedAt = DateTime.UtcNow;
+        }
     }
 }

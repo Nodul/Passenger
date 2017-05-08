@@ -15,7 +15,7 @@ namespace Passenger.Core.Domain
 
         }
 
-        public PassengerNode(Node node, Passenger passenger)
+        protected PassengerNode(Node node, Passenger passenger)
         {
             if (node != null) this.Node = node;
             else throw new ArgumentNullException("PassengerNode cannot accept null Node");
@@ -23,6 +23,11 @@ namespace Passenger.Core.Domain
             if (passenger != null) this.Passenger = passenger;
             else throw new ArgumentNullException("PassengerNode cannot accept null Passenger");
 
+        }
+
+        public static PassengerNode Create(Node node, Passenger passenger)
+        {
+            return new PassengerNode(node, passenger);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Tests.Core.Domain
         [TestMethod]
         public void ConstructPassenger_Valid_True()
         {
-            var user = new User("test@mail.com", "test1", "pass1", "salt1");
+            var user = new User("test@mail.com", "test1", "pass1", "salt1",Roles.User);
             var node = new Node("Wrocław, Rynek 10/12",51.17,17.17);
 
             var passenger = new Passenger.Core.Domain.Passenger(user.Id,node);
@@ -39,7 +39,7 @@ namespace Tests.Core.Domain
         public void ConstructPassenger_NullNode_ArgumentException()
         {
 
-            var user = new User("test@mail.com", "test1", "pass1", "salt1");
+            var user = new User("test@mail.com", "test1", "pass1", "salt1",Roles.User);
             Node node = null;
 
             var passenger = new Passenger.Core.Domain.Passenger(user.Id, node);

@@ -12,9 +12,9 @@ namespace Passenger.Infrastructure.Repositories
     {
         private static ISet<User> _users = new HashSet<User>()
         {
-            new User("user1@gmail.com","user1","secret1","salt"),
-            new User("user2@gmail.com","user2","secret2","salty"),
-            new User("user3@email.com","user3","secret3","salten")
+            new User("user1@gmail.com","user1","secret1","salt",Roles.User),
+            new User("user2@gmail.com","user2","secret2","salty",Roles.User),
+            new User("user3@email.com","user3","secret3","salten",Roles.User)
         };
 
         public async Task AddAsync(User user)

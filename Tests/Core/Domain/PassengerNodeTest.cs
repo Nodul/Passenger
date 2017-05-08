@@ -15,7 +15,7 @@ namespace Tests.Core.Domain
             var node = new Node("Wrocław",15.15,17.17);
             var passenger = new Passenger.Core.Domain.Passenger(Guid.NewGuid(),new Node("Rynek",15.20,17.20));
 
-            var passengerNode = new PassengerNode(node,passenger);
+            var passengerNode = PassengerNode.Create(node,passenger);
 
             Assert.IsNotNull(passengerNode.Node);
             Assert.IsNotNull(passengerNode.Passenger);
@@ -34,7 +34,7 @@ namespace Tests.Core.Domain
             Node node = null;
             var passenger = new Passenger.Core.Domain.Passenger(Guid.NewGuid(), new Node("Rynek", 15.20, 17.20));
 
-            var passengerNode = new PassengerNode(node, passenger);
+            var passengerNode = PassengerNode.Create(node, passenger);
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
@@ -43,7 +43,7 @@ namespace Tests.Core.Domain
             var node = new Node("Wrocław", 15.15, 17.17);
             Passenger.Core.Domain.Passenger passenger = null;
 
-            var passengerNode = new PassengerNode(node, passenger);
+            var passengerNode = PassengerNode.Create(node, passenger);
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
@@ -52,7 +52,7 @@ namespace Tests.Core.Domain
             Node node = null;
             Passenger.Core.Domain.Passenger passenger = null;
 
-            var passengerNode = new PassengerNode(node, passenger);
+            var passengerNode = PassengerNode.Create(node, passenger);
         }
     }
 }

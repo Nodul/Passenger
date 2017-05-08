@@ -12,7 +12,7 @@ namespace Tests.Core.Domain
         [TestMethod]
         public void ConstructDriver_Valid_True()
         {
-            var user = new User("test@mail.com","test","pass1","salt1");
+            var user = new User("test@mail.com","test","pass1","salt1",Roles.User);
             var vehicle = Vehicle.Create("Opel","Corsa",3);
             var routes = new[]
             {
@@ -21,7 +21,7 @@ namespace Tests.Core.Domain
             };
             var dailyRoutes = new[]
             {
-                new DailyRoute(routes[0],new[]{new PassengerNode(new Node("Rynek",15.16,17.18),new Passenger.Core.Domain.Passenger(Guid.NewGuid(), new Node("Rynek", 15.16, 17.18))) })
+                new DailyRoute(routes[0],new[]{PassengerNode.Create(new Node("Rynek",15.16,17.18),new Passenger.Core.Domain.Passenger(Guid.NewGuid(), new Node("Rynek", 15.16, 17.18))) })
             };
 
             var driver = new Driver(user.Id,vehicle,routes,dailyRoutes);
@@ -44,7 +44,7 @@ namespace Tests.Core.Domain
             };
             var dailyRoutes = new[]
             {
-                new DailyRoute(routes[0],new[]{new PassengerNode(new Node("Rynek",15.16,17.18),new Passenger.Core.Domain.Passenger(Guid.NewGuid(), new Node("Rynek", 15.16, 17.18))) })
+                new DailyRoute(routes[0],new[]{PassengerNode.Create(new Node("Rynek",15.16,17.18),new Passenger.Core.Domain.Passenger(Guid.NewGuid(), new Node("Rynek", 15.16, 17.18))) })
             };
 
             var driver = new Driver(user, vehicle, routes, dailyRoutes);
@@ -54,7 +54,7 @@ namespace Tests.Core.Domain
         [ExpectedException(typeof(ArgumentNullException))]
         public void ConstructDriver_NullVehicle_ArgumentNullException()
         {
-            var user = new User("test@mail.com", "test", "pass1", "salt1");
+            var user = new User("test@mail.com", "test", "pass1", "salt1",Roles.User);
             Vehicle vehicle = null;
             var routes = new[]
             {
@@ -63,7 +63,7 @@ namespace Tests.Core.Domain
             };
             var dailyRoutes = new[]
             {
-                new DailyRoute(routes[0],new[]{new PassengerNode(new Node("Rynek",15.16,17.18),new Passenger.Core.Domain.Passenger(Guid.NewGuid(), new Node("Rynek", 15.16, 17.18))) })
+                new DailyRoute(routes[0],new[]{PassengerNode.Create(new Node("Rynek",15.16,17.18),new Passenger.Core.Domain.Passenger(Guid.NewGuid(), new Node("Rynek", 15.16, 17.18))) })
             };
 
             var driver = new Driver(user.Id, vehicle, routes, dailyRoutes);
@@ -73,12 +73,12 @@ namespace Tests.Core.Domain
         [ExpectedException(typeof(ArgumentNullException))]
         public void ConstructDriver_NullRoutes_ArgumentNullException()
         {
-            var user = new User("test@mail.com", "test", "pass1", "salt1");
+            var user = new User("test@mail.com", "test", "pass1", "salt1",Roles.User);
             var vehicle =Vehicle.Create("Opel", "Corsa", 3);
             IEnumerable<Route> routes = null;
             var dailyRoutes = new[]
             {
-                new DailyRoute(new Route(new Node("T1",1,1),new Node("T2",2,2)),new[]{new PassengerNode(new Node("Rynek",15.16,17.18),new Passenger.Core.Domain.Passenger(Guid.NewGuid(), new Node("Rynek", 15.16, 17.18))) })
+                new DailyRoute(new Route(new Node("T1",1,1),new Node("T2",2,2)),new[]{PassengerNode.Create(new Node("Rynek",15.16,17.18),new Passenger.Core.Domain.Passenger(Guid.NewGuid(), new Node("Rynek", 15.16, 17.18))) })
             };
 
             var driver = new Driver(user.Id, vehicle, routes, dailyRoutes);
@@ -88,7 +88,7 @@ namespace Tests.Core.Domain
         [ExpectedException(typeof(ArgumentNullException))]
         public void ConstructDriver_NullDailyRoutes_ArgumentNullException()
         {
-            var user = new User("test@mail.com", "test", "pass1", "salt1");
+            var user = new User("test@mail.com", "test", "pass1", "salt1",Roles.User);
             var vehicle = Vehicle.Create("Opel", "Corsa", 3);
             var routes = new[]
 {

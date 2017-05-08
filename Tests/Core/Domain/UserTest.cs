@@ -16,10 +16,11 @@ namespace Tests.Core.Domain
             var username = "test1";
             var password = "secret1";
             var salt = "salt1";
+            var role = Roles.User;
 
             // Act
 
-            var user = new User(email, username, password, salt);
+            var user = new User(email, username, password, salt,role);
             var UTC = DateTime.UtcNow;
 
             // Assert
@@ -40,9 +41,10 @@ namespace Tests.Core.Domain
             var username = "test1";
             var password = "secret1";
             var salt = "salt1";
+            var role = Roles.User;
 
             // Act
-            var user = new User(email, username, password, salt);
+            var user = new User(email, username, password, salt,role);
             var UTC = DateTime.UtcNow;
 
             // Assert
@@ -64,9 +66,10 @@ namespace Tests.Core.Domain
             var username = "";
             var password = "";
             var salt = "";
+            var role = "";
 
             // Act
-            var user = new User(email, username, password, salt);
+            var user = new User(email, username, password, salt,role);
 
             // Assert
 
@@ -81,9 +84,10 @@ namespace Tests.Core.Domain
             var username = "";
             var password = "pass1";
             var salt = "salt1";
+            var role = Roles.User;
 
             // Act
-            var user = new User(email, username, password, salt);
+            var user = new User(email, username, password, salt,role);
 
             // Assert
 
@@ -98,9 +102,10 @@ namespace Tests.Core.Domain
             var username = "user1";
             var password = "pass1";
             var salt = "sal1";
+            var role = Roles.User;
 
             // Act
-            var user = new User(email, username, password, salt);
+            var user = new User(email, username, password, salt,role);
             var UTC = DateTime.UtcNow;
 
             // Assert
@@ -114,15 +119,16 @@ namespace Tests.Core.Domain
             var username = "user1";
             var password = "pass1";
             var salt = "sal1";
+            var role = Roles.User;
 
             // Act
             List<User> users = new List<User>()
             {
-                new User(email, username, password, salt),
-                new User(email, username, password, salt),
-                new User(email, username, password, salt),
-                new User(email, username, password, salt),
-                new User(email, username, password, salt)
+                new User(email, username, password, salt,role),
+                new User(email, username, password, salt,role),
+                new User(email, username, password, salt,role),
+                new User(email, username, password, salt,role),
+                new User(email, username, password, salt,role)
             };
 
             // Assert

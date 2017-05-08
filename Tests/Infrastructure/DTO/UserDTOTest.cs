@@ -13,7 +13,7 @@ namespace Tests.Infrastructure.DTO
         [TestMethod]
         public void ConstructUserDTO_Valid_True()
         {
-            User user = new User("test@mail.com","test","pass1","salt1");
+            User user = new User("test@mail.com","test","pass1","salt1",Roles.User);
             UserDTO uDTO = new UserDTO
             {
                 Id = user.Id,

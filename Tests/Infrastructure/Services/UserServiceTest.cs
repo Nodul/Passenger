@@ -21,7 +21,7 @@ namespace Tests.Infrastructure.Services
             var mapperMock = new Mock<IMapper>();
 
             var userService = new UserService(userRepoMock.Object,mapperMock.Object);
-            await userService.RegisterAsync("user0@gmail.com","user0","password");
+            await userService.RegisterAsync("user0@gmail.com","user0","password",Roles.User);
 
             // we are veryfing that our userService.RegisterAsync called AddAsync once
             userRepoMock.Verify(x => x.AddAsync(It.IsAny<User>()),Times.Once);
@@ -34,7 +34,7 @@ namespace Tests.Infrastructure.Services
             var mapperMock = new Mock<IMapper>();
 
             var userService = new UserService(userRepoMock.Object, mapperMock.Object);
-            await userService.RegisterAsync("user0@gmail.com", "user0", "password");
+            await userService.RegisterAsync("user0@gmail.com", "user0", "password",Roles.User);
 
             userRepoMock.Verify(x => x.GetAsync(It.IsAny<string>()), Times.Once);
 
@@ -51,7 +51,7 @@ namespace Tests.Infrastructure.Services
             // Act
             await userService.GetAsync("user1@gmail.com");
 
-            var user = new User("user1@gmail.com", "user1", "pass1", "salt1");
+            var user = new User("user1@gmail.com", "user1", "pass1", "salt1",Roles.User);
             // Assert
             userRepoMock.Setup(x => x.GetAsync(It.IsAny<string>())).ReturnsAsync(user);
             userRepoMock.Verify(x => x.GetAsync(It.IsAny<string>()),Times.Once);

@@ -14,10 +14,11 @@ namespace Passenger.Core.Domain
 
         public IEnumerable<DailyRoute> DailyRoutes { get; protected set; }
 
+        public DateTime UpdatedAt { get; protected set; }
 
         protected Driver()
         {
-
+            
         }
 
         public Driver(Guid userID, Vehicle vehicle, IEnumerable<Route> routes, IEnumerable<DailyRoute> dailyRoutes)
@@ -34,6 +35,7 @@ namespace Passenger.Core.Domain
             if (dailyRoutes == null) throw new ArgumentNullException("Driver cannot accept null dailyRoutes IEnumerable");
             else DailyRoutes = dailyRoutes;
 
+            UpdatedAt = DateTime.UtcNow;
         }
     }
 }
